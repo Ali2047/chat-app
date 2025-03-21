@@ -1,5 +1,5 @@
 fastapi==0.111.0
-uvicorn[standard]  # Updated to include WebSocket support
+uvicorn[standard] 
 sqlalchemy
 mysql-connector-python
 python-jose[cryptography]

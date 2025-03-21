@@ -5,7 +5,6 @@ from fastapi import HTTPException
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
 
-# Secret key for JWT (replace with a secure key in production)
 SECRET_KEY = "your-secret-key"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30

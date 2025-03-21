@@ -3,7 +3,6 @@ from . import models, schemas, auth
 from fastapi import HTTPException
 
 def create_user(db: Session, user: schemas.UserCreate):
-    # Check for duplicate username
     existing_user = db.query(models.User).filter(models.User.username == user.username).first()
     if existing_user:
         raise HTTPException(status_code=400, detail="Username already exists")

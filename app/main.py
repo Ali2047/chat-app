@@ -67,7 +67,7 @@ def get_user(user_id: int, db: Session = Depends(database.get_db), current_user:
 async def websocket_endpoint(websocket: WebSocket, room_id: int, token: str = Query(...), db: Session = Depends(database.get_db)):
     user = dependencies.get_current_user_for_websocket(token, db)
     if user is None:
-        await websocket.close(code=1008)  # Policy violation (invalid token)
+        await websocket.close(code=1008) 
         return
     await manager.connect(websocket, room_id, user.id)
     try:
@@ -79,7 +79,6 @@ async def websocket_endpoint(websocket: WebSocket, room_id: int, token: str = Qu
 
 @app.on_event("startup")
 def startup_event():
-    # Create a new session directly instead of using the dependency
     db = SessionLocal()
     try:
         if not crud.get_rooms(db):

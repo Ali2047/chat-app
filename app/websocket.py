@@ -4,7 +4,7 @@ from typing import Dict, List, Set
 class ConnectionManager:
     def __init__(self):
         self.active_connections: Dict[int, List[WebSocket]] = {}
-        self.room_users: Dict[int, Set[int]] = {}  # Track user IDs per room
+        self.room_users: Dict[int, Set[int]] = {}  
 
     async def connect(self, websocket: WebSocket, room_id: int, user_id: int):
         await websocket.accept()

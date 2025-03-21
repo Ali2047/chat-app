@@ -16,10 +16,8 @@ def get_current_user(authorization: str = Header(...), db: Session = Depends(get
         detail="Could not validate credentials",
         headers={"WWW-Authenticate": "Bearer"},
     )
-    # Check if the Authorization header starts with "Bearer "
     if not authorization.startswith("Bearer "):
         raise credentials_exception
-    # Extract the token by removing the "Bearer " prefix
     token = authorization[len("Bearer "):]
     try:
         payload = jwt.decode(token, auth.SECRET_KEY, algorithms=[auth.ALGORITHM])

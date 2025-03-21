@@ -24,4 +24,4 @@ class Message(Base):
     room_id = Column(Integer, ForeignKey("rooms.id"))
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
     sender = relationship("User", back_populates="messages")
-    room = relationship("Room", back_populates="messages")  # Fixed back_populates
+    room = relationship("Room", back_populates="messages")  
