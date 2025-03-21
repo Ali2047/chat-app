@@ -1,0 +1,7 @@
+fastapi==0.111.0
+uvicorn[standard]  # Updated to include WebSocket support
+sqlalchemy
+mysql-connector-python
+python-jose[cryptography]
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
